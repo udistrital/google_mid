@@ -25,6 +25,11 @@ func init() {
 				&controllers.UserController{},
 			),
 		),
+		beego.NSNamespace("/drive",
+			beego.NSInclude(
+				&controllers.DriveController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
