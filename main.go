@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/udistrital/google_mid/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
+
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/plugins/cors"
 )
 
 func main() {
@@ -25,12 +26,6 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	/*logPath := "{\"filename\":\""
-	logPath += beego.AppConfig.String("logPath")
-	logPath += "\"}"
-	logs.SetLogger(logs.AdapterFile, logPath)*/
-
-	// notificacionlib.InitMiddleware()
 	apistatus.Init()
 	beego.Run()
 }
