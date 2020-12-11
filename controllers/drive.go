@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
@@ -48,7 +49,10 @@ func (c *DriveController) PostFileDrive() {
 		resultadoDrive := make(map[string]interface{})
 		if srv, errClient := drive.New(client); errClient == nil {
 			folder := "1snEUvKYFg0Cq6rOhqHW6-KHWsexDs4nf"
-			folderName := "Estefania 02 12 2020"
+			t := time.Now()
+			ano := t.Year()
+			mes := t.Month()
+			folderName := strconv.FormatInt(int64(ano), 10) + " / " + strconv.FormatInt(int64(mes), 10)
 			folderId := ""
 
 			q := fmt.Sprintf("name=\"%s\" and mimeType=\"application/vnd.google-apps.folder\"", folderName)

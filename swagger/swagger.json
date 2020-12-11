@@ -15,6 +15,32 @@
     },
     "basePath": "/v1",
     "paths": {
+        "/drive/{produccion_id}/{metadato_id}/{meta_produccion_id}": {
+            "post": {
+                "tags": [
+                    "drive"
+                ],
+                "description": "Agregar archivo a drive",
+                "operationId": "DriveController.PostFileDrive",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "archivo",
+                        "description": "body for Acta_recibido content",
+                        "required": true,
+                        "type": "file"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int}"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
         "/object/": {
             "get": {
                 "tags": [
@@ -393,6 +419,10 @@
         {
             "name": "user",
             "description": "Operations about Users\n"
+        },
+        {
+            "name": "drive",
+            "description": "DriveController ...\n"
         }
     ]
 }
