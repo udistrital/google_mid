@@ -2,6 +2,7 @@ lastupdate.tmp
 .vscode/
 google_mid
 main
+routers/commentsRouter_controllers.go
 .scannerwork/
 swagger/*.png
 swagger/*.html
