@@ -2,10 +2,8 @@ package controllers
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"strconv"
@@ -45,10 +43,10 @@ func (c *DriveController) PostFileDrive() {
 	if f, handle, errGetFile := c.GetFile("archivo"); errGetFile == nil {
 		defer f.Close()
 
-		client := ServiceAccount("client_secret.json")
+		client := ServiceAccount()
 		resultadoDrive := make(map[string]interface{})
 		if srv, errClient := drive.New(client); errClient == nil {
-			folder := "1snEUvKYFg0Cq6rOhqHW6-KHWsexDs4nf"
+			folder := beego.AppConfig.String("DriveMainFolder")
 			t := time.Now()
 			ano := t.Year()
 			mes := t.Month()
@@ -148,19 +146,10 @@ func (c *DriveController) PostFileDrive() {
 }
 
 //ServiceAccount ...
-func ServiceAccount(secretFile string) *http.Client {
-	b, err := ioutil.ReadFile(secretFile)
-	if err != nil {
-		log.Fatal("error while reading the credential file", err)
-	}
-	var s = struct {
-		Email      string `json:"client_email"`
-		PrivateKey string `json:"private_key"`
-	}{}
-	json.Unmarshal(b, &s)
+func ServiceAccount() *http.Client {
 	config := &jwt.Config{
-		Email:      s.Email,
-		PrivateKey: []byte(s.PrivateKey),
+		Email:      beego.AppConfig.String("DriveClientEmail"),
+		PrivateKey: []byte(beego.AppConfig.String("DrivePrivateKey")),
 		Scopes: []string{
 			drive.DriveScope,
 		},
