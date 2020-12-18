@@ -11,7 +11,10 @@ API MID de servicios de google.
 
 ### Variables de Entorno
 ```shell
+#general
 GOOGLE_MID_HTTP_PORT: [Puerto de ejecución API]
+PRODUCCION_ACADEMICA_SERVICE: [Servicio producción académica crud]
+#mail environment
 GOOGLE_MID_GMAIL_CLIENT_ID: [Client Id de la cuenta que realizará el envío de correos]
 GOOGLE_MID_GMAIL_CLIENT_SECRET: [Secreto de la cuenta que realizará el envío de correos]
 GOOGLE_MID_GMAIL_ACCESS_TOKEN: [Access token de la cuenta que realizará el envío de correos]
