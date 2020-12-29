@@ -91,6 +91,12 @@ func SendEmailOAUTH2_V2(datosNotificacion models.Notificacion) (bool, error) {
 
 	// Se ensambla el contenido
 	emailBody, err := parseTemplate(datosNotificacion.TemplateName, datosNotificacion.TemplateData)
+	// fmt.Println("Email body: ", emailBody)
+	// fmt.Println("err: ", err.Error())
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return false, err
+	// }
 
 	subject := "Subject: " + datosNotificacion.Subject + "\n"
 	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
