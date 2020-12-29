@@ -91,8 +91,8 @@ func SendEmailOAUTH2_V2(datosNotificacion models.Notificacion) (bool, error) {
 
 	// Se ensambla el contenido
 	emailBody, err := parseTemplate(datosNotificacion.TemplateName, datosNotificacion.TemplateData)
-	fmt.Println("Email body: ", emailBody)
-	fmt.Println("err: ", err.Error())
+	// fmt.Println("Email body: ", emailBody)
+	// fmt.Println("err: ", err.Error())
 	// if err != nil {
 	// 	fmt.Println(err)
 	// 	return false, err
