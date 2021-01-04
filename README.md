@@ -14,6 +14,9 @@ API MID de servicios de google.
 #general
 GOOGLE_MID_HTTP_PORT: [Puerto de ejecución API]
 PRODUCCION_ACADEMICA_SERVICE: [Servicio producción académica crud]
+
+GOOGLE_MID_PATH_TEMPLATES: [Indica la ruta de los templates que se usarán para el envío de notificaciones]
+
 #mail environment
 GOOGLE_MID_GMAIL_CLIENT_ID: [Client Id de la cuenta que realizará el envío de correos]
 GOOGLE_MID_GMAIL_CLIENT_SECRET: [Secreto de la cuenta que realizará el envío de correos]
