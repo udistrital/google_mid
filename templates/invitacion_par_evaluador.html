@@ -1,0 +1,140 @@
+<head>
+    <style type="text/css">
+        .firma {
+            color: rgb(170, 170, 170);
+        }
+
+        div.produccionAcademica {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #444;
+            border-radius: 10px;
+            padding: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        div.row {
+            display: flex;
+            justify-content: space-evenly;
+            color: #444;
+        }
+
+        div.encabezado {
+            padding-left: 120px;
+            box-sizing: border-box;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        div.dato {
+            font-size: 12px;
+            width: 100%;
+        }
+
+        a.button {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+
+            text-decoration: none;
+            color: initial;
+            padding: 10px;
+        }
+
+        a.aceptar {
+            background-color: #28A745;
+            color: #fff;
+        }
+
+        a.aceptar:hover {
+            background-color: #218838;
+        }
+
+        a.rechazar {
+            color: #fff;
+            background-color: #DC3545;
+        }
+
+        a.rechazar:hover {
+            background-color: #C82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>Bogotá D.C., {{.Fecha}}</div>
+        <br />
+        <div>Estimado(a) profesor(a)</div>
+        <div>{{.NombreDocente}}</div>
+        <br />
+        <div><b>ASUNTO:</b></div>
+        <br /><br />
+        <div><b>INVITACIÓN PARA PARTICIPAR COMO PAR ACADÉMICO EXTERNO</b></div>
+        <br />
+        <div>
+            <p>Considerando su reconocida trayectoria y calidad académica (consignada en la base de pares evaluadores de
+                Minciencias), el Comité de Personal Docente y Asignación de Puntaje de la Universidad Distrital
+                Francisco José de Caldas le solicita su colaboración en la evaluación del trabajo de uno de nuestros
+                docentes derivados del quehacer investigativo y académico que a diario se da en la Universidad.</p>
+        </div>
+        <div class="produccionAcademica">
+            {{.ContenidoProduccion}}
+        </div>
+        <div>
+            <p>La Universidad Distrital hace un reconocimiento un económico a los <u>evaluadores no vinculados con la
+                    UD</u> por cada producto evaluado así:</p>
+            <ul>
+                <li>
+                    <p>Por evaluación de libros o de traducciones de libros, el 40% de un salario mínimo mensual legal
+                        vigente.</p>
+                </li>
+                <li>
+                    <p>Por la evaluación de cualquier otro tipo de producto, el 30% de un salario mínimo mensual legal
+                        vigente.</p>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p><b>El tiempo</b> estimado para emitir su concepto es de quince (15) días.</p>
+        </div>
+        <div>
+            <p><b>El pago</b> se realizará una vez se entregue la evaluación (el tiempo estimado para ver reflejado el
+                pago es de 60 días), es indispensable contar con una cuenta bancara en Colombia (que este a su nombre).
+                Este pago es un estímulo económico por el servicio académico prestado y no genera relación laboral de
+                ninguna índole con la Universidad Distrital Francisco José de Caldas.</p>
+        </div>
+        <div>
+            <p>Adicionalmente, se solicita al momento de completar el formato de la evaluación firmado y con
+                calificación, enviar los documentos de Ley por email para adelantar el pago correspondiente (Cuenta de
+                cobro, RUT actualizado, fotocopia de la cédula).</p>
+        </div>
+        <div>
+            <p>Si usted acepta esta nueva responsabilidad con la academia, a continuación, encontrará un enlace que lo
+                redirigirá a los documentos asociados y al formato de evaluación en línea.</p>
+        </div>
+        <div style="margin-left:10%;margin-right: 10%;">
+            <div style="float: left;">
+                <a href="{{.UrlCreacionCuentaLogin}}" target="_blank" class="button aceptar">Aceptar evaluación</a>
+            </div>
+            <div style="float: right;">
+                <a href="{{.UrlRechazarEvaluacion}}" target="_blank" class="button rechazar">Rechazar evaluación</a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="firma">
+        <p>
+            Cordialmente,<br />
+            <br />
+            Jefe de la Oficina de Docencia<br />
+            Universidad Distrital Francisco José de Caldas<br />
+            PBX: (057) (1) 3239300 ext 1914 – 1915<br />
+            Sede principal: Carrera 7 No. 40B – 53 Piso 9<br />
+            Código Postal: 11021-110231588<br />
+            Bogotá D.C. - República de Colombia<br />
+            Acreditación Institucional de Alta Calidad - Resolución N° 23096 del 15 de diciembre del 2016
+        </p>
+    </div>
+</body>
