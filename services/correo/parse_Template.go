@@ -13,7 +13,6 @@ func parseTemplate(templateFileName string, data interface{}) (string, error) {
 
 	path := beego.AppConfig.String("TemplatePath")
 
-	templatePath1, err := filepath.Abs(fmt.Sprintf("templates/%s", templateFileName))
 	templatePath, err := filepath.Abs(path + "/" + templateFileName)
 
 	if err != nil {
