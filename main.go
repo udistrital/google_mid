@@ -6,6 +6,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/plugins/cors"
+	"github.com/udistrital/auditoria"
 )
 
 func main() {
@@ -27,5 +28,6 @@ func main() {
 	}))
 
 	apistatus.Init()
+	auditoria.InitMiddleware()
 	beego.Run()
 }
