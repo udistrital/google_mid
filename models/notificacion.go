@@ -14,11 +14,15 @@ type Notificacion struct {
 	TemplateData *ProduccionAcademica
 }
 
-type ProduccionAcademica struct{
-	Fecha                   string
-	NombreDocente           string
-	llaveConsulta           string
-	ContenidoProduccion     template.HTML
-	UrlCreacionCuentaLogin  template.HTML
-	UrlRechazarEvaluacion   template.HTML
+type ProduccionAcademica struct {
+	Fecha                  string
+	NombreDocente          string
+	NombreEstudiante       string
+	llaveConsulta          string
+	EspacioAcademico       string
+	FechaInicio            string
+	FechaFin               string
+	ContenidoProduccion    template.HTML
+	UrlCreacionCuentaLogin template.HTML
+	UrlRechazarEvaluacion  template.HTML
 }
