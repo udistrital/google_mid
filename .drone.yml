@@ -1,12 +1,3 @@
-workspace:
-  base: /go
-  path: src/github.com/udistrital/${DRONE_REPO##udistrital/}
-  when:
-      branch:
-      - develop
-      - release/*
-      - master
-
 kind: pipeline
 name: oas_api_ci
 
@@ -50,7 +41,6 @@ steps:
 - name: go_build
   image: golang:1.14
   commands:
-  - go mod init
   - go get -t
   - GOOS=linux GOARCH=amd64 go build -o main
   when:
@@ -78,9 +68,9 @@ steps:
     - develop
     - release/*
     - master
-   
     event:
     - push
+
 - name: run_sonar_scanner
   image: aosapps/drone-sonar-plugin
   settings:
