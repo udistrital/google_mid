@@ -1,15 +1,18 @@
 # google_mid
+
 API MID de servicios de google.
 
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
-* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
-* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/)
+
+- [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
+- [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Variables de Entorno
+
 ```shell
 #general
 GOOGLE_MID_HTTP_PORT: [Puerto de ejecución API]
@@ -28,9 +31,11 @@ GOOGLE_MID_DRIVE_CLIENT_EMAIL: [Correo de la cuenta de servicio utilizada para s
 GOOGLE_MID_DRIVE_PRIVATE_KEY: [Clave privada de la cuenta de servicio utilizada para subir archivos a drive] # Cambiar \n por enter y poner todo entre comillas
 GOOGLE_MID_DRIVE_MAIN_FOLDER: [Id de folder principal donde se almacenan los archivos en drive]
 ```
+
 **NOTA:** Las variables se pueden ver en el fichero conf/app.conf
 
 ### Ejecución del Proyecto
+
 ```shell
 #1. Obtener el repositorio con Go
 go get github.com/udistrital/google_mid
@@ -46,11 +51,13 @@ GOOGLE_MID_HTTP_PORT=8080 GOOGLE_MID_GMAIL_CLIENT_ID=127.0.0.1 GOOGLE_MID_SOME_V
 ```
 
 ### Ejecución Dockerfile
+
 ```shell
 # Implementado para despliegue del Sistema de integración continua CI.
 ```
 
 ### Ejecución docker-compose
+
 ```shell
 #1. Clonar el repositorio
 git clone -b develop https://github.com/udistrital/google_mid
@@ -74,15 +81,14 @@ docker ps
 ### Ejecución Pruebas
 
 Pruebas unitarias
+
 ```shell
 # Not Data
 ```
 
-| Develop | Relese 0.0.1 | Master |
+| Develop | Release 0.0.1 | Master |
 | -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) |
-
-
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/google_mid/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/google_mid) |
 
 ## Licencia
 
