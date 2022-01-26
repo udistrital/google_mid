@@ -28,8 +28,8 @@ func (c *NotificacionController) URLMapping() {
 // Post ...
 // @Title Post
 // @Description Enviar una notificacion
-// @Param   body        body    {}  true        "body Enviar notificacion content"
-// @Success 200 {}
+// @Param   body        body    models.Notificacion  true        "body Enviar notificacion content"
+// @Success 200 {object} models.RespNotificacionPost
 // @Failure 403 body is empty
 // @router / [post]
 func (c *NotificacionController) Post() {

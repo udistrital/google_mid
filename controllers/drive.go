@@ -32,7 +32,10 @@ func (c *DriveController) URLMapping() {
 // @Title PostFileDrive
 // @Description Agregar archivo a drive
 // @Param	archivo	formData  file	true	"body for Acta_recibido content"
-// @Success 201 {int}
+// @Param	produccion_id	     path  string true  "produccion_id"
+// @Param	metadato_id	       path  string true  "metadato_id"
+// @Param	meta_produccion_id path  string true  "meta_produccion_id"
+// @Success 201 {object} models.RespDrivePost1
 // @Failure 400 the request contains incorrect syntax
 // @router /:produccion_id/:metadato_id/:meta_produccion_id [post]
 func (c *DriveController) PostFileDrive() {

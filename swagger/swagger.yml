@@ -1,0 +1,129 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /drive/{produccion_id}/{metadato_id}/{meta_produccion_id}:
+    post:
+      tags:
+      - drive
+      description: Agregar archivo a drive
+      operationId: DriveController.PostFileDrive
+      parameters:
+      - in: formData
+        name: archivo
+        description: body for Acta_recibido content
+        required: true
+        type: file
+      - in: path
+        name: produccion_id
+        description: produccion_id
+        required: true
+        type: string
+      - in: path
+        name: metadato_id
+        description: metadato_id
+        required: true
+        type: string
+      - in: path
+        name: meta_produccion_id
+        description: meta_produccion_id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RespDrivePost1'
+        "400":
+          description: the request contains incorrect syntax
+  /notificacion/:
+    post:
+      tags:
+      - notificacion
+      description: Enviar una notificacion
+      operationId: NotificacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body Enviar notificacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Notificacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RespNotificacionPost'
+        "403":
+          description: body is empty
+definitions:
+  models.Notificacion:
+    title: Notificacion
+    type: object
+    properties:
+      BCC:
+        type: array
+        items:
+          type: string
+      CC:
+        type: array
+        items:
+          type: string
+      Subject:
+        type: string
+      TemplateData:
+        $ref: '#/definitions/models.ProduccionAcademica'
+      TemplateName:
+        type: string
+      To:
+        type: array
+        items:
+          type: string
+      Trom:
+        type: string
+  models.ProduccionAcademica:
+    title: ProduccionAcademica
+    type: object
+    properties:
+      ContenidoProduccion:
+        $ref: '#/definitions/template.HTML'
+      EspacioAcademico:
+        type: string
+      Fecha:
+        type: string
+      FechaFin:
+        type: string
+      FechaInicio:
+        type: string
+      NombreDocente:
+        type: string
+      NombreEstudiante:
+        type: string
+      UrlCreacionCuentaLogin:
+        $ref: '#/definitions/template.HTML'
+      UrlRechazarEvaluacion:
+        $ref: '#/definitions/template.HTML'
+      llaveConsulta:
+        type: string
+  models.RespDrivePost1:
+    title: RespDrivePost1
+    type: object
+  models.RespNotificacionPost:
+    title: RespNotificacionPost
+    type: object
+  template.HTML:
+    title: HTML
+    type: object
+tags:
+- name: drive
+  description: |
+    DriveController ...
