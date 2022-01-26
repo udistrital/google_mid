@@ -1,6 +1,11 @@
 kind: pipeline
 name: oas_api_ci
 
+trigger:
+  event:
+    exclude:
+      - tag
+
 steps:
 - name: check_readme
   image: jjvargass/qa_develoment:latest
@@ -38,19 +43,6 @@ steps:
     event:
     - push
 
-- name: go_build
-  image: golang:1.14
-  commands:
-  - go get -t
-  - GOOS=linux GOARCH=amd64 go build -o main
-  when:
-    branch:
-    - develop
-    - release/*
-    - master
-    event:
-    - push
-
 - name: go_run_test
   image: golang:1.14
   commands:
@@ -78,6 +70,22 @@ steps:
       from_secret: SONAR_HOST
     sonar_token:
       from_secret: SONAR_TOKEN
+
+- name: go_build
+  image: golang:1.14
+  commands:
+  - go get -t
+  - GOOS=linux GOARCH=amd64 go build -o main
+  when:
+    branch:
+    - dependabot/**
+    - develop
+    - feature/*
+    - hotfix/*
+    - master
+    - release/*
+    event:
+    - push
 
 - name: publish_to_ecr_release
   image: plugins/ecr
