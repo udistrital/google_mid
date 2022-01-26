@@ -26,3 +26,10 @@ type ProduccionAcademica struct {
 	UrlCreacionCuentaLogin template.HTML
 	UrlRechazarEvaluacion  template.HTML
 }
+
+// RespNotificacionPost es el tipo de dato que retorna
+// POST notificacion/
+//
+// TODO: Completar para que se actualice el swagger
+type RespNotificacionPost struct {
+}

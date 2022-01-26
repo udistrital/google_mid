@@ -23,9 +23,26 @@ paths:
         description: body for Acta_recibido content
         required: true
         type: file
+      - in: path
+        name: produccion_id
+        description: produccion_id
+        required: true
+        type: string
+      - in: path
+        name: metadato_id
+        description: metadato_id
+        required: true
+        type: string
+      - in: path
+        name: meta_produccion_id
+        description: meta_produccion_id
+        required: true
+        type: string
       responses:
         "201":
-          description: '{int}'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RespDrivePost1'
         "400":
           description: the request contains incorrect syntax
   /notificacion/:
@@ -40,15 +57,71 @@ paths:
         description: body Enviar notificacion content
         required: true
         schema:
-          $ref: '#/definitions/{}'
+          $ref: '#/definitions/models.Notificacion'
       responses:
         "200":
-          description: '{}'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RespNotificacionPost'
         "403":
           description: body is empty
 definitions:
-  '{}':
-    title: '{}'
+  models.Notificacion:
+    title: Notificacion
+    type: object
+    properties:
+      BCC:
+        type: array
+        items:
+          type: string
+      CC:
+        type: array
+        items:
+          type: string
+      Subject:
+        type: string
+      TemplateData:
+        $ref: '#/definitions/models.ProduccionAcademica'
+      TemplateName:
+        type: string
+      To:
+        type: array
+        items:
+          type: string
+      Trom:
+        type: string
+  models.ProduccionAcademica:
+    title: ProduccionAcademica
+    type: object
+    properties:
+      ContenidoProduccion:
+        $ref: '#/definitions/template.HTML'
+      EspacioAcademico:
+        type: string
+      Fecha:
+        type: string
+      FechaFin:
+        type: string
+      FechaInicio:
+        type: string
+      NombreDocente:
+        type: string
+      NombreEstudiante:
+        type: string
+      UrlCreacionCuentaLogin:
+        $ref: '#/definitions/template.HTML'
+      UrlRechazarEvaluacion:
+        $ref: '#/definitions/template.HTML'
+      llaveConsulta:
+        type: string
+  models.RespDrivePost1:
+    title: RespDrivePost1
+    type: object
+  models.RespNotificacionPost:
+    title: RespNotificacionPost
+    type: object
+  template.HTML:
+    title: HTML
     type: object
 tags:
 - name: drive
